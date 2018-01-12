@@ -1,0 +1,24 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.zhuzb.entity.Permissions" table="sys_permissions">
+        <id name="id" column="id">
+            <generator class="native" />
+        </id>
+        <property name="permission" type="java.lang.String" >
+            <column name="permission" length="100" />
+        </property>
+        <property name="description" type="java.lang.String">
+            <column name="description" length="100" />
+        </property>
+        <property name="available" type="java.lang.Integer">
+            <column name="available" length="1"></column>
+        </property>
+        <set name="roleSet" table="sys_roles_permissions">
+            <key column="permission_id" />
+            <many-to-many class="com.zhuzb.entity.Role" column="role_id" />
+        </set>
+
+    </class>
+</hibernate-mapping>

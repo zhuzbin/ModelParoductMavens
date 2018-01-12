@@ -1,0 +1,26 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.zhuzb.entity.User" table="sys_users">
+        <id name="id" column="id">
+            <generator class="native" />
+        </id>
+        <property name="username" type="java.lang.String" >
+            <column name="username" length="100" />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="password" length="100" />
+        </property>
+        <property name="salt" type="java.lang.String">
+            <column name="salt" length="100"></column>
+        </property>
+        <property name="locked" type="java.lang.Integer">
+            <column name="locked" length="1"></column>
+        </property>
+        <set name="roleSet" table="sys_users_roles">
+            <key column="user_id" />
+            <many-to-many class="com.zhuzb.entity.Role" column="role_id" />
+        </set>
+    </class>
+</hibernate-mapping>

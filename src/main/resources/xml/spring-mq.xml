@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/rabbit http://www.springframework.org/schema/rabbit/spring-rabbit-1.0.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+ <!--   <context:property-placeholder location="classpath:properitons/mq.properties" />
+    &lt;!&ndash;配置connection-factory，指定连接rabbit server参数&ndash;&gt;
+    <rabbit:connection-factory id="connectionFactory" username="${mq.username}" password="${mq.password}" host="${mq.host}" port="${mq.port}" virtual-host="${mq.vhost}" />
+    &lt;!&ndash;通过指定下面的admin信息，当前producer中的exchange和queue会在rabbitmq服务器上自动生成&ndash;&gt;
+    <rabbit:admin connection-factory="connectionFactory" />
+    &lt;!&ndash;定义queue&ndash;&gt;
+    <rabbit:queue id="test_queue_key" name="test_queue_key" durable="true" auto-delete="false" exclusive="false"/>
+    <rabbit:queue id="topicId" name="topicName" durable="true" auto-delete="false" exclusive="false" />
+    <rabbit:queue id="fanoutId" name="fanoutName" durable="true" auto-delete="false" exclusive="false" />
+    &lt;!&ndash; 定义direct exchange，绑定com.mj.test queue &ndash;&gt;
+&lt;!&ndash;   <rabbit:direct-exchange name="test-mq-exchange" durable="true" id="test-mq-exchange" auto-delete="false">
+           <rabbit:bindings>
+               <rabbit:binding queue="test_queue_key" key="test_queue_key" />
+           </rabbit:bindings>
+       </rabbit:direct-exchange>&ndash;&gt;
+
+&lt;!&ndash;        <rabbit:topic-exchange name="topicExchange" id="topicIdss" durable="true" auto-delete="false">
+            <rabbit:bindings>
+                <rabbit:binding queue="fanoutName" pattern="test123.#" />
+                <rabbit:binding queue="topicName" pattern="#.qwe" />
+            </rabbit:bindings>
+        </rabbit:topic-exchange>&ndash;&gt;
+
+       <rabbit:fanout-exchange name="fanoutExchange" id="fanouts" durable="true" auto-delete="false">
+           <rabbit:bindings>
+               <rabbit:binding queue="fanoutName"></rabbit:binding>
+               <rabbit:binding queue="topicName"></rabbit:binding>
+           </rabbit:bindings>
+       </rabbit:fanout-exchange>
+
+    <bean id="jsonMessageConverter" class="org.springframework.amqp.support.converter.Jackson2JsonMessageConverter" />
+    &lt;!&ndash;定义rabbit template用于数据的接收和发送&ndash;&gt;
+    <rabbit:template exchange="test-mq-exchange" id="amqpTemplate" connection-factory="connectionFactory" message-converter="jsonMessageConverter" />
+
+
+
+
+    &lt;!&ndash;定义rabbit template用于数据的监听&ndash;&gt;
+    <rabbit:listener-container connection-factory="connectionFactory" acknowledge="auto">
+        <rabbit:listener queues="fanoutName" ref="consumer" />
+        <rabbit:listener queues="topicName" ref="consumer1" />
+    </rabbit:listener-container>
+
+    &lt;!&ndash; 测试JavaBean &ndash;&gt;
+    <bean id="mQProducer" class="com.zhuzb.mq.MQProducerImpl" />
+    <bean id="consumer" class="com.zhuzb.mq.Consumer" />
+    <bean id="consumer1" class="com.zhuzb.mq.Consumer1" />-->
+</beans>

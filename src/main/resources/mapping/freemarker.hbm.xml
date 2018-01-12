@@ -1,0 +1,30 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.zhuzb.entity.FreeMarker" table="columns">
+        <id name="columnName" type="java.lang.String">
+            <column name="COLUMN_NAME" length="64"></column>
+        </id>
+        <property name="tableSchema" type="java.lang.String">
+            <column name="TABLE_SCHEMA" length="64"></column>
+        </property>
+        <property name="tableName" type="java.lang.String">
+            <column name="TABLE_NAME" length="64"></column>
+        </property>
+
+        <property name="dataType" type="java.lang.String">
+            <column name="DATA_TYPE" length="64"></column>
+        </property>
+        <property name="columnComment" type="java.lang.String">
+            <column name="COLUMN_COMMENT" length="1024"></column>
+        </property>
+        <property name="columnKey" type="java.lang.String">
+            <column name="COLUMN_KEY" length="3"></column>
+        </property>
+        <property name="characterMaximumLength" type="java.lang.Integer">
+            <column name="CHARACTER_MAXIMUM_LENGTH" length="21"></column>
+        </property>
+    </class>
+
+</hibernate-mapping>
